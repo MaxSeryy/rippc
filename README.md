@@ -1,1 +1,1 @@
-"# rippc" 
+Random stupid idea

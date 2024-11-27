@@ -1,18 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include <conio.h>
-#include <iomanip>
 #include <windows.h>
 using namespace std;
 
-int menu(){
-    cout <<"\n^-^ R.I.P. YOUR PC ^-^" << endl;
-    cout <<"1. Test your PC" << endl;
-    cout <<"2. How mach free PHYSICAL memory" << endl;
-    cout <<"3. Exit" << endl;
+void menu() {
+    cout << "\n^-^ R.I.P. YOUR PC ^-^" << endl;
+    cout << "1. Test your PC" << endl;
+    cout << "2. How much free PHYSICAL memory" << endl;
+    cout << "3. Exit" << endl;
 }
 
-int freeMemory(){
+int freeMemory() {
     MEMORYSTATUSEX statex;
     statex.dwLength = sizeof(statex);
     GlobalMemoryStatusEx(&statex);
@@ -20,30 +18,30 @@ int freeMemory(){
     return 0;
 }
 
-int test(){
+int test() {
     int *arr;
-    int p = 3.141592653589793238462643;
+    double p = 3.141592653589793238462643;
     double pi = 3.141592653589793238462643;
 
-    while(true){
+    while (true) {
         arr = new int[1000000];
-        for(int i = 0; i < 1000000; i++){
+        for (int i = 0; i < 1000000; i++) {
             arr[i] = i;
-            if(arr[i] % p * pi == 0){
-                arr[i] = arr[i] / p;
+            if (arr[i] % static_cast<int>(p * pi) == 0) {
+                arr[i] = arr[i] / static_cast<int>(p);
             }
         }
     }
     return 0;
 }
 
-int main(){
+int main() {
     int choice;
-    do{
+    do {
         menu();
         cout << "Enter your choice: ";
         cin >> choice;
-        switch(choice){
+        switch (choice) {
             case 1:
                 cout << "Test" << endl;
                 test();
@@ -58,6 +56,6 @@ int main(){
             default:
                 cout << "Invalid choice" << endl;
         }
-    }while(choice != 3);
+    } while (choice != 3);
     return 0;
 }
